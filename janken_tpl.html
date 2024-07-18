@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+<body>
+<div class="border">
+<header>
+  <h1>じゃんけん</h1>
+</header>
+
+<main>
+  <div class="saisyo" id="aikode">
+  最初は<img class="sai_gu" src="./img/janken_gu.png" alt="">じゃんけん・・・</div>
+
+  <!-- <ul> 
+    <li id="gu_btn">グー</li>
+    <li id="cho_btn">チョキ</li>
+    <li id="par_btn">パー</li>
+  </ul>-->
+  <div class="aite">
+  <div>コンピュータの出した手は？</div><span class ="pc_hands_img" id ="pc_hands">
+  </span></div>
+  <div class="judge">判定：<span id="judgment"></div>
+
+  <div class="te">
+  <div>あなた</div>
+    <img id="gu" src="./img/janken_gu.png" alt="">
+    <img id="cho" src="./img/janken_choki.png" alt="">
+    <img id="pa" src="./img/janken_pa.png" alt="">
+    </div>
+
+    <div class="kousin">
+    <a onclick="window.location.reload(true)";>
+      <i class="fa" aria-hidden="ture"></i><span>もう一回</span>
+    </a></div>
+</div>
+
+<div id="hantei_a" class="hantei_1">
+  YOU WIN!
+</div>
+
+
+<div id="hantei_b" class="hantei_2"> 
+  YOU LOSE
+</div>
+
+
+
+
+
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+
+$("#gu").on("click",function(){
+  const r = Math.random()*3;
+  const n = Math.ceil(r);//文字を赤
+    if(n == 1){           //文字を上書き
+        //$("#gu_btn").fadeOut(3000).fadeIn(3000); //文字を赤
+        $("#pc_hands").html('<img src="./img/janken_gu.png" alt="">');
+        $("#judgment").html("あいこ");
+        $("#aikode").html("あいこで・・・");
+
+    }
+    if(n == 2){
+      $("#pc_hands").html('<img src="./img/janken_choki.png" alt="">');
+      $("#judgment").html("勝ち");
+      $("#gu").css("filter","brightness(100%)"); 
+      $("#gu").css("background","rgba(255, 220, 107, 0.993)");
+
+      $("#hantei_a").fadeIn(5000);
+
+    }
+    if(n == 3){
+      $("#pc_hands").html('<img src="./img/janken_pa.png" alt="">');
+      $("#judgment").html("負け");
+      $("#gu").css("filter","brightness(100%)"); 
+      $("#gu").css("background","rgba(255, 220, 107, 0.993)");
+      $("#hantei_b").fadeIn(5000);
+    }
+
+});
+
+$("#cho").on("click",function(){
+
+  const r = Math.random()*3;
+  const n = Math.ceil(r);
+    if(n == 1){           //文字を上書き
+        //$("#gu_btn").fadeOut(3000).fadeIn(3000); //文字を赤
+        $("#pc_hands").html('<img src="./img/janken_gu.png" alt="">');
+        $("#judgment").html("負け");
+        $("#cho").css("filter","brightness(100%)"); 
+        $("#cho").css("background","rgba(255, 220, 107, 0.993)");
+        $("#hantei_b").fadeIn(5000);
+
+    }
+    if(n == 2){
+      $("#pc_hands").html('<img src="./img/janken_choki.png" alt="">');
+      $("#judgment").html("あいこ");
+      $("#aikode").html("あいこで・・・");
+    }
+    if(n == 3){
+      $("#pc_hands").html('<img src="./img/janken_pa.png" alt="">');
+      $("#judgment").html("勝ち");
+      $("#cho").css("filter","brightness(100%)"); 
+      $("#cho").css("background","rgba(255, 220, 107, 0.993)");
+      $("#hantei_a").fadeIn(5000);
+    }
+
+});
+
+$("#pa").on("click",function(){
+  const r = Math.random()*3;
+  const n = Math.ceil(r);
+  
+
+    if(n == 1){           //文字を上書き
+        //$("#gu_btn").fadeOut(3000).fadeIn(3000); //文字を赤
+        $("#pc_hands").html('<img src="./img/janken_gu.png" alt="">');
+        $("#judgment").html("勝ち");
+        $("#pa").css("filter","brightness(100%)"); 
+        $("#pa").css("background","rgba(255, 220, 107, 0.993)");
+        $("#hantei_a").fadeIn(5000);
+
+    }
+    if(n == 2){
+      $("#pc_hands").html('<img src="./img/janken_choki.png" alt="">');
+      $("#judgment").html("負け");
+      $("#pa").css("filter","brightness(100%)"); 
+      $("#pa").css("background","rgba(255, 220, 107, 0.993)");
+      $("#hantei_b").fadeIn(5000);
+    }
+    if(n == 3){
+      $("#pc_hands").html('<img src="./img/janken_pa.png" alt="">');
+      $("#judgment").html("あいこ");
+      $("#aikode").html("あいこで・・・");
+    }
+
+});
+    
+    
+    
+    
+    
+    
+    
+
+</script>
+</body>
+</html>
